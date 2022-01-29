@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cooking?serverTimezone=Asia/Tokyo
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Yuce19Fj5
+# Bean 間の循環参照を許可し、自動的に解決しようとするかどうか
+  main:
+    allow-circular-references: true
+# message
+  messages:
+    basename: property/messages,property/ValidationMessages

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+</head>
+<body>
+	<header layout:fragment="header" class="sticky-top header">
+		<div class="inner">
+			<div>
+				<a class="header-title" href="/search">料理検索アプリ(仮)</a>
+			</div>
+			<div>
+				<span>
+					<div id="user-icon">
+						<img src="/images/user-icon/icon.jpg" class="user-icon">
+					</div>
+					<div id="header-menu" class="not-active">
+						<botton class="menu-item menu-botton">
+							<div class="botton-content">
+								<a class="menu-btn" href="/user">マイページ</a>
+							</div>
+						</botton>
+						<botton class="menu-item menu-botton">
+							<div class="botton-content">
+								<a class="menu-btn" href="#">お気に入りの料理</a>
+							</div>
+						</botton>
+						<botton class="menu-item menu-botton">
+							<div class="botton-content">
+								<a class="menu-btn" href="#">仮</a>
+							</div>
+						</botton>
+						<botton class="menu-item menu-item-logout menu-botton">
+							<div class="botton-content">
+								<form method="post" th:action="@{/logout}">
+									<button class="menu-btn" type="submit">ログアウト</button>
+								</form>
+							</div>
+						</botton>
+					</div>
+				</span>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

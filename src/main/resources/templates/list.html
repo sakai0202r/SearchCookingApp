@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8">
+<title>料理一覧</title>
+<!-- 共通CSS読込 -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/list.css}">
+<!-- 個別JS読込 -->
+<link rel="stylesheet" th:href="@{/webjars/datatables/css/jquery.dataTables.min.css}">
+<script th:src="@{/webjars/datatables/js/jquery.dataTables.min.js}" defer></script>
+</head>
+<body>
+<div layout:fragment="content" class="ryori-list">
+	<h1 class="bold">料理候補一覧</h1>
+	<table class="table table-striped table-bordered table-hover">
+		<thead class="thead-light">
+			<tr>
+				<th class="th-width">料理名</th>
+				<th class="th-width">食材</th>
+				<th class="th-width">料理カテゴリ</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item: ${ryoriList}">
+				<td>
+					<a th:text="${item.ryorimei}" th:href="@{'/ryori/detail/' + ${item.ryoriId}}"></a>
+				</td>
+				<td th:text="${item.syokuzaimei.getSyokuzaimei()}"></td>
+				<td th:text="${item.categoryName.getCategoryName()}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- onclick="history.back()" で前画面に戻る -->
+	<button type="button" onclick="history.back()" class="btn btn-link">検索画面へ戻る</button>
+</div>
+</body>
+</html>

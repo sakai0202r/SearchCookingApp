@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8">
+<title>料理詳細</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/ryori/detail.css}">
+<script th:src="@{/js/reload.js}" defer></script>
+</head>
+<body>
+<div layout:fragment="content" class="detail">
+	<h1 class="detail-title">料理詳細</h1>
+	<table class="table table-striped table-bordered" th:object="${ryoriDetail}">
+		<tbody class="thead-light">
+			<tr>
+				<th class="th-width">料理名</th>
+			</tr>
+			<tr>
+				<td th:text="*{ryorimei}"></td>
+			</tr>
+			<tr th:if="*{calorie}">
+				<th class="th-width">目安カロリー</th>
+			</tr>
+			<tr th:if="*{calorie}">
+				<td  th:text="*{calorie} + ' kcal'"></td>
+			</tr>
+			<tr>
+				<th class="th-width">食材</th>
+			</tr>
+			<tr>
+				<td th:text="*{syokuzaimei.getSyokuzaimei()}"></td>
+			</tr>
+			<tr>
+				<th class="th-width">料理カテゴリ</th>
+			</tr>
+			<tr>
+				<td th:text="*{categoryName.getCategoryName()}"></td>
+			</tr>
+			<tr>
+				<th class="th-width">レシピ検索</th>
+			</tr>
+			<tr>
+				<td>
+					<ul>
+						<!-- ※　rel="noopener noreferreで、元タブのリンクが切り替わらないようにする -->
+						<li><a th:href="@{'https://recipe.rakuten.co.jp/search/' + *{ryorimei}}" 
+							th:text="楽天レシピ" target="_blank" rel="noopener noreferrer"></a></li>
+						<li><a th:href="@{'https://cookpad.com/search/' + *{ryorimei}}" 
+							th:text="cookpad" target="_blank" rel="noopener noreferrer"></a></li>
+						<li><a th:href="@{'https://www.youtube.com/results?search_query=' + *{ryorimei}} + '　レシピ'" 
+							th:text="YouTube" target="_blank" rel="noopener noreferrer"></a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th class="th-width">料理イメージ</th>
+			</tr>
+			<tr>
+				<td><img th:src="@{'/images/ryori-image/' + *{ryorimei} + '.jpg'}" class="ryoiri-img img-fluid"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/search">検索画面に戻る</a>
+	<!-- <button type="button" onclick="history.back()" class="btn btn-link">一覧に戻る</button> -->
+</div>
+</body>
+</html>

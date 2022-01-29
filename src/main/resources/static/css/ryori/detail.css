@@ -1,0 +1,16 @@
+.detail {
+	font-size: 18px;
+}
+
+.detail-title {
+	margin-top: 0.8em;
+}
+
+.ryoiri-img {
+  	display: flex;
+  	width: 550px;
+  	height: 500px;
+  	justify-content: center;
+  	align-items: center;
+  	margin: auto;
+}

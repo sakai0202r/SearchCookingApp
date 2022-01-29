@@ -1,0 +1,25 @@
+.login-btn {
+	margin-top: 10px;
+}
+
+.loginLinkWrapper {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1;
+    color: #4b4948;
+    margin-top: 25px;
+}
+
+.loginLinkWrapper:hover {
+	color: #4b4948;
+}
+
+.login-link {
+    font-weight: 600;
+    color: #ffaa4e;
+    border: none;
+    text-decoration: none;
+    appearance: none;
+}

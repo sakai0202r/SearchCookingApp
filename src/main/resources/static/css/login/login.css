@@ -1,0 +1,150 @@
+body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    color: #1e1c1a;
+    font-weight: 300;
+}
+
+.App {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    /* 要素が横に並ぶ */
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.AppHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #f0efef;
+}
+
+.AppHeader-title {
+	font-size: 20px;
+	font-weight: 600;
+	color: #ffaa4e;
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    text-decoration: none;
+}
+
+.AppHeader-title:hover {
+	color: #ffaa4e;
+}
+
+main {
+	/* 要素の前後には改行が入り、縦に並ぶ */
+    display: block;
+    width: 100%;
+}
+
+.content {
+	width: 400px;
+    padding: 40px 0 120px;
+    margin: auto;
+}
+
+.login-title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-bottom: 27px;
+    font-weight: bold;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    width: 100%;
+}
+
+.textField {
+	width: 100%;
+    margin: 0 0 24px;
+}
+
+label {
+	cursor: default;
+}
+
+.label{
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .1px;
+    line-height: 130%;
+    display: block;
+    color: #3e3a37;
+    margin: 0 0 8px;
+}
+
+.form-control {
+    font-weight: 600;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 0 16px;
+    height: 46px;
+}
+
+.login-btn {
+	width: 100%;
+	height: 50px;
+	border-radius: 100px;
+	background: linear-gradient(180deg,#ffaa4e 1.28%,#febc56 74.02%);
+	border: none;
+}
+
+.login-btn:hover {
+	opacity: 0.94;
+}
+
+.login-btn:focus {
+	outline: none;
+}
+
+.btn-text {
+	color: #fff;
+	font-weight: 600;
+}
+
+.signup-content {
+    padding: 20px 0 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.signupLinkWrapper {
+	font-size: 16px;
+    line-height: 1;
+    color: #1e1c1a;
+}
+
+.signup-link {
+    font-weight: 600;
+    color: #ffaa4e;
+}
+
+.signup-link:hover {
+	color: #ffaa4e;
+}
