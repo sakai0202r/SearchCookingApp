@@ -34,9 +34,6 @@ public class SearchController {
 	@Autowired
 	private UserService userService;
 	
-//	@Autowired
-//	HttpSession session;  
-
 	@GetMapping("/search")
 	public String getSearch(Model model) {
 
@@ -60,10 +57,9 @@ public class SearchController {
 		List<Ryori> ryoriList = ryoriService.getRyoriList(ryoriListForm);
 		
 		model.addAttribute("loginUser", loginUser);
-//		session.setAttribute("ryoriList", ryoriList);
-//		session.getAttribute("ryoriList");
 		model.addAttribute("ryoriList", ryoriList);
-
+		
+		System.out.print(ryoriList);
 		return "list";
 	}
 }
