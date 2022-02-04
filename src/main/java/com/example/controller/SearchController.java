@@ -34,7 +34,7 @@ public class SearchController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/search")
+	@GetMapping("/")
 	public String getSearch(Model model) {
 
 		MUser loginUser = userService.getLoginUserId();
@@ -49,7 +49,7 @@ public class SearchController {
 		return "search";
 	}
 
-	@PostMapping("/search")
+	@PostMapping("/ryori/list")
 	public String postRyoriListRequest(@ModelAttribute RyoriListForm ryoriListForm, Model model) {
 		
 		MUser loginUser = userService.getLoginUserId();

@@ -19,7 +19,6 @@
     			<img th:src="@{'/images/ryori-image/' + *{item.ryorimei} + '.jpg'}" class="ryori-image img-fluid">
     		</a>
     		<a th:text="${item.ryorimei}" th:href="@{'/ryori/detail/' + ${item.ryoriId}}" class="ryorimei"></a>
-    		
     	</div>
     </div>
 	<!-- onclick="history.back()" で前画面に戻る -->

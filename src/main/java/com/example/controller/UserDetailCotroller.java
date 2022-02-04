@@ -16,7 +16,7 @@ public class UserDetailCotroller {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/user")
+	@GetMapping("/account")
 	public String getUserDetail(Model model) {
 		
 		MUser loginUser = userService.getLoginUserId();
@@ -26,11 +26,11 @@ public class UserDetailCotroller {
 	}
 	
 	/** ユーザー更新処理 */
-	@PostMapping(value = "/user", params = "update")
+	@PostMapping(value = "/account", params = "update")
 	public String updateUser(UserDetailForm form, Model model) {
 		
 		userService.updateUserOne(form.getUserId(), form.getUserName(), form.getPassword());
 		
-		return "redirect:/user";
+		return "redirect:/account";
 	}
 }

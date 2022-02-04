@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}"><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/list.css}">
+<link rel="stylesheet" th:href="@{/webjars/datatables/css/jquery.dataTables.min.css}">
+<script th:src="@{/webjars/datatables/js/jquery.dataTables.min.js}" defer></script>
+<title>お気に入りの料理</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<h1 class="headline-title">お気に入りの料理</h1>
+	<div  class="row ryori-list">
+    	<div th:each="item: ${list}" class="col-15 ryori-contents">
+    		<a th:href="@{'/ryori/detail/' + ${item.ryoriId}}">
+    			<img th:src="@{'/images/ryori-image/' + *{item.ryorimei.getRyorimei()} + '.jpg'}" class="ryori-image img-fluid">
+    		</a>
+    		<a th:text="${item.ryorimei.getRyorimei()}" th:href="@{'/ryori/detail/' + ${item.ryoriId}}" class="ryorimei"></a>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

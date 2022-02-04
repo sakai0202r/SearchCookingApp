@@ -15,6 +15,6 @@ public class LoginController {
 	// ユーザー一覧画面にリダイレクト
 	@PostMapping("/login")
 	public String postSearch() {
-		return "redirect:/search";
+		return "redirect:/";
 	}
 }

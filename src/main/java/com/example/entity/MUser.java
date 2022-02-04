@@ -17,7 +17,4 @@ public class MUser {
 	private String password;
 	private String role;
 	
-//	@OneToMany
-//	@JoinColumn(insertable=true, updatable=true, name="ryoriId")
-//	private Ryori ryoriId;
 }

@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  .loginPage("/login") // ログインページの指定
 		  .usernameParameter("userId") // ログインページのユーザーId
 		  .passwordParameter("password")  // ログインページのパスワード
-		  .defaultSuccessUrl("/search", true); // 成功後の遷移先
+		  .defaultSuccessUrl("/", true); // 成功後の遷移先
 		
 		// CSRF対策を無効に設定（一時的）
 		http.csrf().disable();
