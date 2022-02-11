@@ -3,15 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>料理詳細</title>
-<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/ryori/detail.css}">
-<script th:src="@{/js/reload.js}" defer></script>
+<script th:src="@{/js/favorite.js}" defer></script>
 </head>
 <body>
 <div layout:fragment="content" class="detail">
 	<h1 class="detail-title">料理詳細</h1>
 	<table class="table table-striped table-bordered" th:object="${ryoriDetail}">
 		<tbody class="thead-light">
+			<form id="favorite" method="post" th:action="@{'/ryori/detail/' + *{ryoriId}}">
+				<!-- お気に入りが存在しない場合 -->
+				<div th:unless="${existFavorite}">
+					<button id="add-favorite" class="btn-favorite">お気に入り</button>
+				</div>
+				<!-- お気に入りが存在しない場合 -->
+				<div th:if="${existFavorite}">
+					<button id="remove-favorite" class="btn-favorite" type="submit" name="delete">お気に入り解除</button>
+				</div>
+			</form>
 			<tr>
 				<th class="th-width">料理名</th>
 			</tr>
@@ -60,7 +69,8 @@
 			</tr>
 		</tbody>
 	</table>
-	<a href="/search">検索画面に戻る</a>
+	
+	<a href="/">検索画面に戻る</a>
 	<!-- <button type="button" onclick="history.back()" class="btn btn-link">一覧に戻る</button> -->
 </div>
 </body>

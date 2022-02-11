@@ -16,6 +16,7 @@ public class FavoriteListController {
 	@Autowired
 	private FavoriteService favoriteService;
 	
+	/** お気に入り一覧を表示 **/
 	@GetMapping("/account/favorites")
 	public String getFavoriteRyoriList(Model model) {
 		List<Favorite> favoriteRyoriList = favoriteService.getFavoriteRyoriList();
@@ -24,5 +25,13 @@ public class FavoriteListController {
 		
 		return "ryori/favoriteList";
 	}
+	
+//	@PostMapping("/")
+//	public String addFavorite() {
+//		
+//		favoriteService.addFavorite();
+//		
+//		return "redirect:/ryori/list";
+//	}
 
 }

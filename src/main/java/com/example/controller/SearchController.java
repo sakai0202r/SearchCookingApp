@@ -59,7 +59,6 @@ public class SearchController {
 		model.addAttribute("loginUser", loginUser);
 		model.addAttribute("ryoriList", ryoriList);
 		
-		System.out.print(ryoriList);
 		return "list";
 	}
 }

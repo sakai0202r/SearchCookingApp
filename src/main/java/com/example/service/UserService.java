@@ -51,6 +51,12 @@ public class UserService {
 	public MUser getLoginUser(String userId) {
 		return repository.findLoginUser(userId);
 	}
+	
+	public String getUserId() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String userId = auth.getName();
+		return userId;
+	}
 
 	/** ログインユーザーのIDを取得 */
 	public MUser getLoginUserId() {
