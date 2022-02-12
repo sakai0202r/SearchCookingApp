@@ -5,39 +5,37 @@
 <body>
 	<header layout:fragment="header" class="sticky-top header">
 		<div class="inner">
-			<div>
-				<a class="header-title" href="/">料理検索アプリ(仮)</a>
+			<div class="header-title">
+				<a class="header-link" href="/">料理検索アプリ(仮)</a>
 			</div>
-			<div>
-				<span>
-					<div id="user-icon">
-						<img src="/images/user-icon/icon.jpg" class="user-icon">
-					</div>
-					<div id="header-menu" class="not-active">
-						<botton class="menu-item menu-botton">
-							<div class="botton-content">
-								<a class="menu-btn" href="/account">マイページ</a>
-							</div>
-						</botton>
-						<botton class="menu-item menu-botton">
-							<div class="botton-content">
-								<a class="menu-btn" href="/account/favorites">お気に入り</a>
-							</div>
-						</botton>
-						<botton class="menu-item menu-botton">
-							<div class="botton-content">
-								<a class="menu-btn" href="#">仮</a>
-							</div>
-						</botton>
-						<botton class="menu-item menu-item-logout menu-botton">
-							<div class="botton-content">
-								<form method="post" th:action="@{/logout}">
-									<button class="menu-btn" type="submit">ログアウト</button>
-								</form>
-							</div>
-						</botton>
-					</div>
-				</span>
+			<div class="header-menu">
+				<div id="user-icon">
+					<img src="/images/user-icon/icon.jpg" class="user-icon">
+				</div>
+				<div id="header-menu" class="not-active">
+					<botton class="menu-item menu-botton">
+						<div class="botton-content">
+							<a class="menu-btn" href="/account">マイページ</a>
+						</div>
+					</botton>
+					<botton class="menu-item menu-botton">
+						<div class="botton-content">
+							<a class="menu-btn" href="/account/favorites">お気に入り</a>
+						</div>
+					</botton>
+					<botton class="menu-item menu-botton">
+						<div class="botton-content">
+							<a class="menu-btn" href="#">仮</a>
+						</div>
+					</botton>
+					<botton class="menu-item menu-item-logout menu-botton">
+						<div class="botton-content">
+							<form method="post" th:action="@{/logout}">
+								<button class="menu-btn" type="submit">ログアウト</button>
+							</form>
+						</div>
+					</botton>
+				</div>
 			</div>
 		</div>
 	</header>

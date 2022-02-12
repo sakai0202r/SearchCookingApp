@@ -11,5 +11,5 @@ spring:
   messages:
     basename: property/messages,property/ValidationMessages
 # 内部的に発行されるSQLを確認する
-  jpa: 
-    show-sql: true
+#  jpa: 
+#    show-sql: true

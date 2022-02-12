@@ -2,76 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
 <head>
 <meta charset="UTF-8">
-<title>料理詳細</title>
+<title th:text="${ryoriDetail.getRyorimei()}"></title>
 <link rel="stylesheet" th:href="@{/css/ryori/detail.css}">
 <script th:src="@{/js/favorite.js}" defer></script>
 </head>
 <body>
-<div layout:fragment="content" class="detail">
-	<h1 class="detail-title">料理詳細</h1>
-	<table class="table table-striped table-bordered" th:object="${ryoriDetail}">
-		<tbody class="thead-light">
-			<form id="favorite" method="post" th:action="@{'/ryori/detail/' + *{ryoriId}}">
-				<!-- お気に入りが存在しない場合 -->
-				<div th:unless="${existFavorite}">
-					<button id="add-favorite" class="btn-favorite">お気に入り</button>
+<div layout:fragment="content" class="ryori-detail">
+	<div class="" th:object="${ryoriDetail}">
+		<h1 th:text="*{ryorimei} + ' のレシピ'" class="detail-title"></h1>
+		<input id="ryoriId" type="hidden" th:value="*{ryoriId}" disabled="disabled">
+		<div>
+			<img th:src="@{'/images/ryori-image/' + *{ryorimei} + '.jpg'}" th:alt="*{ryorimei}" class="ryori-img">
+			<div class="top-content">
+				<form id="favorite-form" method="post" th:action="@{'/ryori/detail/' + *{ryoriId}}">
+					<!-- お気に入りしていない場合 -->
+					<div th:unless="${existFavorite}">
+						<button id="add-favorite" class="btn-favorite" type="button">お気に入り</button>
+					</div>
+					<!-- 既にお気に入りしている場合 -->
+					<div th:if="${existFavorite}">
+						<button id="remove-favorite" class="btn-favorite" type="button">お気に入り解除</button>
+					</div>
+				</form>
+				<div th:if="*{calorie}" class="calorie">
+					<label class="font-weight-bold">目安カロリー：</label>
+					<p th:text="*{calorie} + '&nbsp;kcal'" class="font-weight-bold"></p>
 				</div>
-				<!-- お気に入りが存在しない場合 -->
-				<div th:if="${existFavorite}">
-					<button id="remove-favorite" class="btn-favorite" type="submit" name="delete">お気に入り解除</button>
-				</div>
-			</form>
-			<tr>
-				<th class="th-width">料理名</th>
-			</tr>
-			<tr>
-				<td th:text="*{ryorimei}"></td>
-			</tr>
-			<tr th:if="*{calorie}">
-				<th class="th-width">目安カロリー</th>
-			</tr>
-			<tr th:if="*{calorie}">
-				<td  th:text="*{calorie} + ' kcal'"></td>
-			</tr>
-			<tr>
-				<th class="th-width">食材</th>
-			</tr>
-			<tr>
-				<td th:text="*{syokuzaimei.getSyokuzaimei()}"></td>
-			</tr>
-			<tr>
-				<th class="th-width">料理カテゴリ</th>
-			</tr>
-			<tr>
-				<td th:text="*{categoryName.getCategoryName()}"></td>
-			</tr>
-			<tr>
-				<th class="th-width">レシピ検索</th>
-			</tr>
-			<tr>
-				<td>
-					<ul>
-						<!-- ※　rel="noopener noreferreで、元タブのリンクが切り替わらないようにする -->
-						<li><a th:href="@{'https://recipe.rakuten.co.jp/search/' + *{ryorimei}}" 
-							th:text="楽天レシピ" target="_blank" rel="noopener noreferrer"></a></li>
-						<li><a th:href="@{'https://cookpad.com/search/' + *{ryorimei}}" 
-							th:text="cookpad" target="_blank" rel="noopener noreferrer"></a></li>
-						<li><a th:href="@{'https://www.youtube.com/results?search_query=' + *{ryorimei}} + '　レシピ'" 
-							th:text="YouTube" target="_blank" rel="noopener noreferrer"></a></li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th class="th-width">料理イメージ</th>
-			</tr>
-			<tr>
-				<td><img th:src="@{'/images/ryori-image/' + *{ryorimei} + '.jpg'}" class="ryoiri-img img-fluid"></td>
-			</tr>
-		</tbody>
-	</table>
-	
-	<a href="/">検索画面に戻る</a>
-	<!-- <button type="button" onclick="history.back()" class="btn btn-link">一覧に戻る</button> -->
+			</div>
+			<div class="second-content">
+				<label class="contents-lavbel">メイン食材</label>
+				<p th:text="*{syokuzaimei.getSyokuzaimei()}"></p>
+			</div>
+			<div class="second-content">
+				<label class="contents-lavbel">料理カテゴリ</label>
+				<p th:text="*{categoryName.getCategoryName()}"></p>
+			</div>
+			<div class="second-content">
+				<label class="contents-lavbel">レシピ検索</label>
+				<ul class="recipe-list">
+					<!-- ※　rel="noopener noreferreで、元タブのリンクが切り替わらないようにする -->
+					<li><a th:href="@{'https://recipe.rakuten.co.jp/search/' + *{ryorimei}}" 
+						th:text="楽天レシピ" target="_blank" rel="noopener noreferrer"></a></li>
+					<li><a th:href="@{'https://cookpad.com/search/' + *{ryorimei}}" 
+						th:text="cookpad" target="_blank" rel="noopener noreferrer"></a></li>
+					<li><a th:href="@{'https://www.youtube.com/results?search_query=' + *{ryorimei}} + '　レシピ'" 
+						th:text="YouTube" target="_blank" rel="noopener noreferrer"></a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- <a href="/">検索画面に戻る</a> -->
+		<!-- <button type="button" onclick="history.back()" class="btn btn-link">一覧に戻る</button> -->
+	</div>
 </div>
 </body>
 </html>

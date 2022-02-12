@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Favorite;
-import com.example.entity.MUser;
 import com.example.repository.FavoriteRepository;
 
 @Service
@@ -31,6 +30,7 @@ public class FavoriteService {
 		favoriteRipository.deleteFavorite(userService.getUserId(), favorite.getRyoriId());
 	}
 	
+	/** お気に入りしているかどうかを判定 */
 	public boolean existFavorite(Favorite favorite) {
 		Favorite resultFavorite = favoriteRipository.findFavorite(userService.getUserId(), favorite.getRyoriId());
 		if(resultFavorite != null) {

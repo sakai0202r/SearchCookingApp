@@ -27,6 +27,8 @@ public interface FavoriteRepository extends JpaRepository<Favorite, Integer>  {
 			+ "and ryori_id = :ryoriId")
 	public void deleteFavorite(@Param("userId") String userId, @Param("ryoriId") Integer ryoriId);
 	
+	
+	/** お気に入りしているかを検索 */
 	@Query("select f from Favorite f\n"
 			+ "where user_id = :userId\n"
 			+ "and ryori_id = :ryoriId")

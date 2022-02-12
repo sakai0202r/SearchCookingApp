@@ -1,16 +1,103 @@
-.detail {
+.ryori-detail {
 	font-size: 18px;
+	margin-left: 2em;
+	margin-bottom: 80px;
 }
 
 .detail-title {
 	margin-top: 0.8em;
+	font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 130%;
+    margin-top: 35px;
+    margin-bottom: 30px;
 }
 
-.ryoiri-img {
-  	display: flex;
-  	width: 550px;
-  	height: 500px;
-  	justify-content: center;
-  	align-items: center;
-  	margin: auto;
+.ryori-img {
+  	width: 600px;
+  	height: 537px;
+  	border-radius: 8px;
+}
+
+@media screen and (max-width: 770px) {
+	.ryori-detail {
+		display: flex;
+		justify-content: center;
+		margin-left: 0;
+	}
+	.ryori-img {
+		width: 550px;
+  		height: 484px;
+	}
+}
+
+@media screen and (max-width: 590px) {
+	.ryori-detail {
+		display: flex;
+		justify-content: center;
+		margin-left: 0;
+	}
+	.ryori-img {
+		width: 460px;
+  		height: 404px;
+	}
+}
+
+.btn-favorite {
+	width: 200px;
+	height: 45px;
+	border-radius: 100px;
+ 	display: flex;
+ 	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.btn-favorite:hover {
+	opacity: 0.8;
+}
+
+.btn-favorite:focus {
+	outline: none;
+	
+}
+
+#add-favorite {
+	background-color: #ffdddd;
+}
+
+.top-content {
+	display: flex;
+}
+
+.calorie {
+	display: flex;
+	margin-left: 30px;
+	margin-top: 29px;
+}
+
+.second-content {
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+
+.contents-lavbel {
+	color: #151413;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    border-bottom: 1px solid #797979;
+    padding-bottom: 7px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.recipe-list {
+	list-style: none;
+	margin-left: -30px;
 }
