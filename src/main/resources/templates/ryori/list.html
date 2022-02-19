@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8">
+<title>料理一覧</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/ryori/list.css}">
+<!-- <script th:src="@{/js/list.js}" defer></script> -->
+</head>
+<body>
+<div layout:fragment="content" class="ryori-list-content">
+	<div class="search-box">
+		<form id="search-ryori-list" method="post" action="/">
+			<div class="search">
+				<div class="search-syokuzai search-content">
+					<label class="contents-lavbel">メイン食材</label><br>
+						<select class="pulldown" name="syokuzaimei">
+							<option value="">条件なし</option>
+							<option th:each="syokuzai : ${syokuzaiList}"
+									th:value="${syokuzai.syokuzaiId}"
+									th:text="${syokuzai.syokuzaimei}"
+									th:selected="${syokuzai.syokuzaimei == selectedValue}"></option>
+						</select>
+				</div>
+				<div class="search-category search-content">
+					<label class="contents-lavbel">料理カテゴリ</label><br>
+					<select class="pulldown" name="categoryName">
+						<option value="">条件なし</option>
+						<option th:each="category : ${categoryList}"
+								th:value="${category.categoryId}"
+								th:text="${category.categoryName}"
+								th:selected="${category.categoryName == selectedValue}"></option>
+					</select><br>
+					<br>
+				</div>
+			</div>
+			<div class="search-button search-content">
+				<button id="search-btn" type="submit" class="search-btn">🔍</button>
+			</div>
+		</form>
+	</div>
+	<div class="row ryori-list">
+    	<div th:each="item: ${ryoriList}" class="col-15 ryori-contents">
+    		<a th:href="@{'/ryori/detail/' + ${item.ryoriId}}">
+    			<img th:src="@{'/images/ryori-image/' + *{item.ryorimei} + '.jpg'}" class="ryori-image img-fluid">
+    		</a>
+    		<a th:text="${item.ryorimei}" th:href="@{'/ryori/detail/' + ${item.ryoriId}}" class="ryorimei"></a>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

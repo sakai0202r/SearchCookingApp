@@ -18,6 +18,10 @@ public class RyoriService {
 	@Autowired
 	private RyoriRepository ryoriRepository;
 	
+	public List<Ryori> getAllRyoriList() {
+		return ryoriRepository.findAll();
+	}
+	
 	// 条件に一致する料理リストを取得	
 	public List<Ryori> getRyoriList(RyoriListForm ryoriListForm) {
 		Syokuzai syokuzaimei = ryoriListForm.getSyokuzaimei();

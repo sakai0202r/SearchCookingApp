@@ -10,17 +10,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.entity.Category;
-import com.example.entity.MUser;
 import com.example.entity.Ryori;
 import com.example.entity.Syokuzai;
 import com.example.form.RyoriListForm;
 import com.example.service.CategoryService;
 import com.example.service.RyoriService;
 import com.example.service.SyokuzaiService;
-import com.example.service.UserService;
 
 @Controller
-public class SearchController {
+public class RyoriListController {
 
 	@Autowired
 	private SyokuzaiService syokuzaiService;
@@ -30,35 +28,32 @@ public class SearchController {
 
 	@Autowired
 	private RyoriService ryoriService;
-
-	@Autowired
-	private UserService userService;
 	
 	@GetMapping("/")
 	public String getSearch(Model model) {
-
-		MUser loginUser = userService.getLoginUserId();
 		
 		List<Syokuzai> syokuzaiList = syokuzaiService.getSyokuzaiList();
 		List<Category> categoryList = categoryService.getCategoryList();
+		List<Ryori> ryoriList = ryoriService.getAllRyoriList();
 		
-		model.addAttribute("loginUser", loginUser);
 		model.addAttribute("syokuzaiList", syokuzaiList);
 		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("ryoriList", ryoriList);
 
-		return "search";
+		return "ryori/list";
 	}
 
-	@PostMapping("/ryori/list")
+	@PostMapping("/")
 	public String postRyoriListRequest(@ModelAttribute RyoriListForm ryoriListForm, Model model) {
 		
-		MUser loginUser = userService.getLoginUserId();
-
+		List<Syokuzai> syokuzaiList = syokuzaiService.getSyokuzaiList();
+		List<Category> categoryList = categoryService.getCategoryList();
 		List<Ryori> ryoriList = ryoriService.getRyoriList(ryoriListForm);
 		
-		model.addAttribute("loginUser", loginUser);
+		model.addAttribute("syokuzaiList", syokuzaiList);
+		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("ryoriList", ryoriList);
 		
-		return "list";
+		return "ryori/list";
 	}
 }

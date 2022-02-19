@@ -1,0 +1,115 @@
+.headline-title {
+	font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 130%;
+    margin-top: 35px;
+    margin-left: 1em;
+}
+
+.search-box {
+	margin-top: 35px;
+	display: flex;
+	margin-left: 50px;
+}
+
+.search-content {
+	margin-right: 30px;
+}
+
+.search-syokuzai {
+	float: left;
+}
+
+.search-category {
+	float: right;
+}
+
+.search {
+	float: left;
+}
+
+.search-button {
+	float: right;
+	margin-top: 17px;
+}
+
+.search-btn {
+	width: 60px;
+	height: 45px;
+	border-radius: 100px;
+ 	display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    font-size: 22px;
+    font-weight: 600;
+    background: #eaeaea;
+}
+
+.search-btn:focus {
+	outline: none;
+}
+
+.contents-lavbel {
+	color: #151413;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.pulldown {
+	width: 100%;
+	padding: 1px 6px;
+}
+
+.ryori-list {
+	display: flex;
+	justify-content: left;
+	margin-left: 25px;
+	margin-bottom: 100px;
+}
+
+@media screen and (max-width: 530px) {
+	.ryori-list {
+		margin-left: -2px;
+	}
+}
+
+.ryori-contents:hover {
+	opacity: 0.86;
+	cursor: pointer;
+}
+
+.ryori-image {
+	display: flex;
+  	width: 250px;
+  	height: 220px;
+  	margin: 28px 8px 6px 8px;
+  	border-radius: 8px;
+}
+
+@media screen and (max-width: 530px) {
+	.ryori-image {
+		width: 220px;
+  		height: 200px;
+	}
+}
+
+.ryorimei {
+	color: #1e1c1a;
+	margin-top: 100px;
+	margin-left: 13px;
+	font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.ryorimei:hover {
+	color: #1e1c1a;
+	text-decoration: none;
+	border-bottom: 1px solid #1e1c1a;
+    padding-bottom: 1px;
+}

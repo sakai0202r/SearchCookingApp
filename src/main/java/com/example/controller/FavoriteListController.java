@@ -23,15 +23,7 @@ public class FavoriteListController {
 		
 		model.addAttribute("list", favoriteRyoriList);
 		
-		return "ryori/favoriteList";
+		return "user/favorite";
 	}
-	
-//	@PostMapping("/")
-//	public String addFavorite() {
-//		
-//		favoriteService.addFavorite();
-//		
-//		return "redirect:/ryori/list";
-//	}
 
 }
