@@ -3,6 +3,8 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,12 +24,17 @@ public class UserDetailCotroller {
 		MUser loginUser = userService.getLoginUserId();
 		model.addAttribute("loginUser", loginUser);
 		
-		return "user/detail";
+		return "user/account";
 	}
 	
 	/** ユーザー更新処理 */
 	@PostMapping(value = "/account", params = "update")
-	public String updateUser(UserDetailForm form, Model model) {
+	public String updateUser(@Validated UserDetailForm form, BindingResult bindingResult) {
+		
+		// 入力チェック
+		if(bindingResult.hasErrors()) {
+			return "redirect:/account";
+		}
 		
 		userService.updateUserOne(form.getUserId(), form.getUserName(), form.getPassword());
 		

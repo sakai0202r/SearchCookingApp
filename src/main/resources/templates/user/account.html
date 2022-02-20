@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/user/account.css}">
+</head>
+<body>
+<div layout:fragment="content" class="account-detail">
+	<h1 class="detail-title">ログイン情報</h1>
+	<form method="post" th:action="@{/account}" class="account-form" th:object="${loginUser}">
+		<input type="hidden" th:field="*{userId}">
+		<div class="form-content">
+			<div>
+				<label for="userId" class="label" th:text="#{userId}"></label>
+				<p th:text="*{userId}" class="account-text"></p>
+			</div>
+			<div>
+				<label for="userName" class="label" th:text="#{userName}"></label>
+				<input type="text" class="form-control" th:field="*{userName}" maxlength="20">
+			</div>
+			<div>
+				<label for="password" class="label" th:text="#{password}"></label>
+				<input type="password" class="form-control" th:field="*{password}" maxlength="32">
+			</div>
+			<div>
+				<label for="role" class="label" th:text="#{role}"></label>
+				<p th:if="${loginUser.getRole() == 'ROLE_ADMIN'}" class="account-text">システム管理者</p>
+				<p th:if="${loginUser.getRole() == 'ROLE_FREE_MEMBER'}" class="account-text">無料会員</p>
+				<p th:if="${loginUser.getRole() == 'ROLE_PAID_MEMBER'}" class="account-text">プレミアム会員</p>
+			</div>			
+		</div>
+		<div class="account-btn">
+			<button class="update-btn" type="submit" name="update"> 変更 </button>
+			<button class=""> アカウントを削除する </button>
+		</div>
+	</form>
+</div>
+</body>
+</html>

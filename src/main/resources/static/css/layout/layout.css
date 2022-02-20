@@ -114,6 +114,10 @@ body {
     margin: 0 16px;
 }
 
+.menu-item-logout {
+	margin-left: -5px;
+}
+
 .menu-item-logout::after {
 	background-color: #fff;
 }

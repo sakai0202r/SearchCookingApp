@@ -1,0 +1,68 @@
+.account-detail {
+	font-size: 18px;
+	width: 400px;
+	color: #1e1c1a;
+	margin: 0 auto;
+}
+
+.detail-title {
+	margin-top: 0.8em;
+	font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 130%;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+
+.label{
+    font-weight: 600;
+    line-height: 130%;
+    display: block;
+    color: #3e3a37;
+    margin: 10px 0;
+}
+
+.account-text {
+	border-bottom: 1px solid #494442;
+	display: inline-block;
+	padding-bottom: 1px;
+}
+
+.form-control {
+    font-weight: 600;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 0 16px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.account-btn {
+	margin-top: 20px;
+}
+
+.update-btn {
+    width: 100px;
+	height: 40px;
+	border-radius: 100px;
+	background: linear-gradient(180deg,#ffaa4e 1.28%,#febc56 74.02%);
+	border: none;
+	margin-right: 10px;
+}
+
+.update-btn:hover {
+	opacity: 0.94;
+}
+
+.update-btn:focus {
+	outline: none;
+}
+
+.update-btn {
+	color: #fff;
+	font-weight: 600;
+}
