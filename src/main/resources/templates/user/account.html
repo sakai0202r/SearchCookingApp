@@ -5,6 +5,7 @@
 <title>マイページ</title>
 <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/user/account.css}">
+<script th:src="@{/js/dialog.js}" defer></script>
 </head>
 <body>
 <div layout:fragment="content" class="account-detail">
@@ -32,8 +33,8 @@
 			</div>			
 		</div>
 		<div class="account-btn">
-			<button class="update-btn" type="submit" name="update"> 変更 </button>
-			<button class=""> アカウントを削除する </button>
+			<button id="update-btn" type="submit" name="update"> 変更 </button>
+			<button id="delete-btn" type="submit" name="delete"> アカウントを削除する </button>
 		</div>
 	</form>
 </div>

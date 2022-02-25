@@ -40,4 +40,13 @@ public class UserDetailCotroller {
 		
 		return "redirect:/account";
 	}
+	
+	@PostMapping(value = "/account", params = "delete")
+	public String deleteUser(UserDetailForm form, Model model) {
+		
+		// ユーザー削除
+		userService.deleteUserOne(form.getUserId());
+		
+		return "redirect:/login";
+	}
 }

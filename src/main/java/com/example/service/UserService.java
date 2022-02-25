@@ -83,4 +83,10 @@ public class UserService {
 		}
 	}
 	
+	/** ユーザー削除 */
+	@Transactional
+	public void deleteUserOne(String userId) {
+		repository.deleteById(userId);
+	}
+	
 }

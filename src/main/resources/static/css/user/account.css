@@ -45,7 +45,7 @@
 	margin-top: 20px;
 }
 
-.update-btn {
+#update-btn {
     width: 100px;
 	height: 40px;
 	border-radius: 100px;
@@ -54,15 +54,33 @@
 	margin-right: 10px;
 }
 
-.update-btn:hover {
+#update-btn:hover {
 	opacity: 0.94;
 }
 
-.update-btn:focus {
+#update-btn:focus {
 	outline: none;
 }
 
-.update-btn {
+#update-btn {
 	color: #fff;
 	font-weight: 600;
+}
+
+#delete-btn {
+	border: none;
+	background-color: transparent;
+	font-size: 15px;
+	border-bottom: 1px solid #797979;
+	color: #797979;
+	margin-left: 10px;
+}
+
+#delete-btn:hover {
+	color: #011892;
+	border-bottom: 1px solid #011892;
+}
+
+#delete-btn:focus {
+	outline: none;
 }
