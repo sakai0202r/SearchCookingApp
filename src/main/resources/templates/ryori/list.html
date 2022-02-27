@@ -5,7 +5,7 @@
 <title>料理一覧</title>
 <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/ryori/list.css}">
-<!-- <script th:src="@{/js/list.js}" defer></script> -->
+<script th:src="@{/js/list.js}" defer></script>
 </head>
 <body>
 <div layout:fragment="content" class="ryori-list-content">
@@ -30,8 +30,14 @@
 								th:value="${category.categoryId}"
 								th:text="${category.categoryName}"
 								th:selected="${category.categoryName == selectedValue}"></option>
-					</select><br>
-					<br>
+					</select>
+				</div>
+				<div class="free-search">
+					<div class="check-box">
+						<input id="check-box" type="checkbox">
+						<p>フリーワードで検索する</p>
+					</div>
+					<input class="text-box" type="text" name="text">
 				</div>
 			</div>
 			<div class="search-button search-content">

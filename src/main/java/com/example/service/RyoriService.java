@@ -42,6 +42,11 @@ public class RyoriService {
 		return result;
 	}
 	
+	// 条件に一致する料理リストを取得	(フリーワード検索した場合)
+	public List<Ryori> getRyoriListFree(String text) {
+		return ryoriRepository.findFree(text);
+	}
+	
 	public Ryori getRyoriDetail(Integer ryoriId) {
 		Optional<Ryori> option = ryoriRepository.findById(ryoriId);
 		Ryori ryoriDetail = option.orElse(null);

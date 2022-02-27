@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.entity.Category;
 import com.example.entity.Ryori;
@@ -44,11 +45,17 @@ public class RyoriListController {
 	}
 
 	@PostMapping("/")
-	public String postRyoriListRequest(@ModelAttribute RyoriListForm ryoriListForm, Model model) {
+	public String postRyoriListRequest(@ModelAttribute RyoriListForm ryoriListForm, @RequestParam("text") String text, Model model) {
 		
 		List<Syokuzai> syokuzaiList = syokuzaiService.getSyokuzaiList();
 		List<Category> categoryList = categoryService.getCategoryList();
-		List<Ryori> ryoriList = ryoriService.getRyoriList(ryoriListForm);
+		List<Ryori> ryoriList;
+		
+		if(text != "") {
+			ryoriList = ryoriService.getRyoriListFree(text);
+		} else {
+			ryoriList = ryoriService.getRyoriList(ryoriListForm);
+		}
 		
 		model.addAttribute("syokuzaiList", syokuzaiList);
 		model.addAttribute("categoryList", categoryList);

@@ -26,4 +26,19 @@ public interface RyoriRepository extends JpaRepository<Ryori, Integer> {
 	@Query("select r from Ryori r\n"
 			+ "where r.categoryName = :categoryName")
 	public List<Ryori> findByCategoryName(@Param("categoryName") Category categoryName);
+	
+	String query = "select * from ryori r\n"
+			+ "inner join syokuzai s\n"
+			+ "on r.syokuzai_id = s.syokuzai_id\n"
+			+ "inner join category c\n"
+			+ "on r.category_id = c.category_id\n"
+			+ "where \n"
+			+ "(r.ryorimei like %?1% or\n"
+			+ "s.syokuzaimei like %?1% or\n"
+			+ "c.category_name like %?1%)\n"
+			+ "order by r.ryori_id";
+	
+	// フリーワードで検索
+	@Query(value = query, nativeQuery = true)
+	public List<Ryori> findFree(String text);
 }

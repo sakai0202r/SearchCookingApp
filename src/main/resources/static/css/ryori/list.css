@@ -11,6 +11,7 @@
 	margin-top: 35px;
 	display: flex;
 	margin-left: 50px;
+	/* margin-bottom: px; */
 }
 
 .search-content {
@@ -27,6 +28,22 @@
 
 .search {
 	float: left;
+}
+
+.free-search {
+	margin-top: 80px;
+}
+
+.check-box {
+	margin-bottom: -10px;
+}
+
+.check-box p {
+	display: inline-block;
+}
+
+.text-box {
+	display: none;
 }
 
 .search-button {
