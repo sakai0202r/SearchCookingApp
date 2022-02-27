@@ -53,10 +53,15 @@ public class RyoriListController {
 		
 		if(text != "") {
 			ryoriList = ryoriService.getRyoriListFree(text);
+			if(ryoriList.size() == 0) {
+				
+			} else {
+				model.addAttribute("searchWord", text);
+			}
 		} else {
 			ryoriList = ryoriService.getRyoriList(ryoriListForm);
 		}
-		
+
 		model.addAttribute("syokuzaiList", syokuzaiList);
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("ryoriList", ryoriList);
