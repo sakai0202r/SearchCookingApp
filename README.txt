@@ -21,3 +21,5 @@ jpa
 ・料理詳細
 ・お気に入り機能
 ・お気に入り一覧
+
+<img width="1440" alt="スクリーンショット 2022-04-10 1 57 32" src="https://user-images.githubusercontent.com/51599713/162583884-3bbd6d05-24e1-489e-acab-858f3810eff9.png">
