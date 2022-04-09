@@ -21,5 +21,3 @@ jpa
 ・料理詳細
 ・お気に入り機能
 ・お気に入り一覧
-
-https://user-images.githubusercontent.com/51599713/162583990-6f9f352a-0f1f-4266-a514-df1066c39ff6.png
